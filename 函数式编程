@@ -1,0 +1,19 @@
+def add(x,y,f):
+    return f(x) + f(y)
+def turn(L)                                #L是一个list
+    L = [s.lower() for s in L]        #用列表生成式把list里的字符变成小写
+   return L
+
+add(5,-6,abs)
+输出的结果是11
+turn(['SHOw','mE','tHe','MONEY'])
+输出的结果是['show', 'me', 'the', 'money']def add(x,y,f):
+    return f(x) + f(y)
+def turn(L)                                #L是一个list
+    L = [s.lower() for s in L]        #用列表生成式把list里的字符变成小写
+   return L
+
+add(5,-6,abs)
+输出的结果是11
+turn(['SHOw','mE','tHe','MONEY'])
+输出的结果是['show', 'me', 'the', 'money']
