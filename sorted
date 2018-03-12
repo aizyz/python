@@ -1,0 +1,35 @@
+
+# -*- coding: utf-8 -*-
+
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+def by_score(t):
+    return t[1]
+L2 = sorted(L, key=by_score)
+print(L2)
+
+
+/*
+t[0] 和 t[1]  为什么就能直接用了元组的第一，二项？
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+上面的可以理解为下面的：
+L = [tuple,tuple,tuple,tuple]
+比如第一个tuple为('Bob', 75)
+t[0]='Bob'
+t[1]='75'
+
+其实你的问题是key方法是怎么运作的？
+L = sorted([-12,-21], key=abs)
+print (L) --> [12,21]
+
+首先,  key=abs 理解为 -12进入abs函数，返回一个12，-21进入函数返回一个21。在这里key=abs并没有进行排序，（排序是sorted干的事）key的用法是让参数-12,-21进入abs函数，返回结果12,21。
+
+回过来看代码：
+L=[('Bob',75),('Adam',92),('Bart',66),('Lisa',88)]
+
+def by_name(t):
+    return t[0].lower()
+print(sorted(L, key=by_name))
+
+实际上key=by_name 理解为 （'Bob',75）进入by_name函数，返回一个值。('Adam',92)进入by_name函数了，返回一个值。('Bart',66)进入by_name函数了，返回一个值。（'Lisa',88)进入by_name函数了，返回一个值。总共返回4个值。最后sorted对返回的4个值进行排序。
+在('Bob',75)中，我们让t = ('Bob',75)，因此t[0]='Bob' t[1]=75。如果按名字排序，我们的函数就返回t[0]，如果按成绩排序，我们的函数就返回t[1]
+*/
